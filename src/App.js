@@ -3,6 +3,7 @@ import './App.css';
 
 import SignIn from './pages/SignIn'
 import UsersContent from './pages/UsersContent'
+import UsersFriendContent from './pages/UsersFriendContent'
 import HomeContent from './pages/HomeContent'
 
 import HeaderFakeBook from './components/HeaderFakeBook'
@@ -31,7 +32,22 @@ class UsersPage extends React.Component {
   render () {
     return (
       <>
-      <UsersContent/>
+      {/* <UsersContent/> */}
+
+      <UsersFriendContent/>
+      
+      <PostUser/>
+      </>
+    )
+  }
+}
+
+
+class UsersFriendPage extends React.Component {
+  render () {
+    return (
+      <>
+      <UsersFriendContent/>
       
       <PostUser/>
       </>
@@ -59,6 +75,7 @@ function App() {
             <Route path="/signin"><SignIn /></Route>
             <Route path="/newsfeed"><NewsFeedPage /></Route>
             <Route path="/users"><UsersPage /></Route>
+            <Route path="/users/friend"><UsersFriendPage /></Route>
             <Route path="/"><HomePage /></Route>
           </Switch>
         </div>
