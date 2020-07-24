@@ -1,9 +1,10 @@
 import React from 'react'
-import { Avatar, Row, Col, Card, Typography, Input, Checkbox, Button } from 'antd';
+import { Avatar, Row, Col, Card, Typography, Button } from 'antd';
 import axios from 'axios';
 
 import HeaderFakeBook from '../components/HeaderFakeBook'
 
+const https = require('https');
 const { Title } = Typography;
 
 let profileDetail = {
@@ -25,9 +26,11 @@ class UsersFriendContent extends React.Component {
 
       const config = {
         headers: { 
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTkyNWY3YWQzYmE5YzM0ZDI2ZGUxYiIsImlhdCI6MTU5NTQ4MzcyMSwiZXhwIjoxNTk2MzQ3NzIxfQ.NsrGt948scGH3E8ZO7yfnxz_ZrJZz3M5e-1fA6sHQxY`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTkyNWY3YWQzYmE5YzM0ZDI2ZGUxYiIsImlhdCI6MTU5NTU1OTc0MCwiZXhwIjoxNTk2NDIzNzQwfQ.l0jB0fFGKHv7x6YaJj9Q10pYUjOedF0VSsllPtVmjl0`,
           'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS', }
+          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          httpsAgent: new https.Agent({ rejectUnauthorized: false })
+         }
       };
       
       const bodyParameters = {
@@ -62,11 +65,12 @@ class UsersFriendContent extends React.Component {
               <Card style={{marginTop:100}}>
                 <Row>
                   <Col span={12}>
-                    <Avatar round={true} size={200} alt={profileDetail.name} src={this.state.user && this.state.user.displayimage} />
+                    <Avatar round={true} size={200} alt={profileDetail.name} src={this.state.user && this.state.user.displayimage} /> 
                   </Col>
                   <Col span={12}>
-                    <Title level={4}>{this.state.user && this.state.user.displayname}</Title>
+                    <Title level={4}>{this.state.user && this.state.user.displayname}</Title> 
                     <span>{this.state.user && this.state.user.firstname} {this.state.user && this.state.user.lastname}</span>
+                    <Button type="link" href="/edit">Edit Profile</Button>
                   </Col>
                 </Row>
               </Card>

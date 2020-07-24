@@ -19,9 +19,10 @@ const menu = (
         Logout
       </Link>
     </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item key="3" disabled>
-      3rd menu item（disabled）
+    <Menu.Item key="4">
+      <Link rel="noopener noreferrer" to="/edit">
+        Edit
+      </Link>
     </Menu.Item>
   </Menu>
 );

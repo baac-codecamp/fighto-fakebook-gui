@@ -4,6 +4,7 @@ import './App.css';
 import SignIn from './pages/SignIn'
 import UsersContent from './pages/UsersContent'
 import UsersFriendContent from './pages/UsersFriendContent'
+import UsersEditContent from './pages/UsersEditContent'
 import HomeContent from './pages/HomeContent'
 
 import HeaderFakeBook from './components/HeaderFakeBook'
@@ -55,6 +56,16 @@ class UsersFriendPage extends React.Component {
   }
 }
 
+class UsersEditPage extends React.Component {
+  render () {
+    return (
+      <>
+      <UsersEditContent/>
+      </>
+    )
+  }
+}
+
 class NewsFeedPage extends React.Component {
   render () {
     return (
@@ -76,6 +87,7 @@ function App() {
             <Route path="/newsfeed"><NewsFeedPage /></Route>
             <Route path="/users"><UsersPage /></Route>
             <Route path="/users/friend"><UsersFriendPage /></Route>
+            <Route path="/edit"><UsersEditPage /></Route>
             <Route path="/"><HomePage /></Route>
           </Switch>
         </div>
