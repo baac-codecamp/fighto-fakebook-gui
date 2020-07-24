@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Row, Col, Card, Typography, Input, Checkbox, Button } from 'antd';
+import { Avatar, Row, Col, Card, Typography, Button } from 'antd';
 import axios from 'axios';
 
 import HeaderFakeBook from '../components/HeaderFakeBook'
@@ -62,11 +62,12 @@ class UsersFriendContent extends React.Component {
               <Card style={{marginTop:100}}>
                 <Row>
                   <Col span={12}>
-                    <Avatar round={true} size={200} alt={profileDetail.name} src={this.state.user && this.state.user.displayimage} />
+                    <Avatar round={true} size={200} alt={profileDetail.name} src={this.state.user && this.state.user.displayimage} /> 
                   </Col>
                   <Col span={12}>
-                    <Title level={4}>{this.state.user && this.state.user.displayname}</Title>
+                    <Title level={4}>{this.state.user && this.state.user.displayname}</Title> 
                     <span>{this.state.user && this.state.user.firstname} {this.state.user && this.state.user.lastname}</span>
+                    <Button type="link" href="/edit">Edit Profile</Button>
                   </Col>
                 </Row>
               </Card>
