@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import HeaderFakeBook from '../components/HeaderFakeBook'
 
+const https = require('https');
 const { Title } = Typography;
 
 let profileDetail = {
@@ -25,9 +26,11 @@ class UsersFriendContent extends React.Component {
 
       const config = {
         headers: { 
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTkyNWY3YWQzYmE5YzM0ZDI2ZGUxYiIsImlhdCI6MTU5NTQ4MzcyMSwiZXhwIjoxNTk2MzQ3NzIxfQ.NsrGt948scGH3E8ZO7yfnxz_ZrJZz3M5e-1fA6sHQxY`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMTkyNWY3YWQzYmE5YzM0ZDI2ZGUxYiIsImlhdCI6MTU5NTU1OTc0MCwiZXhwIjoxNTk2NDIzNzQwfQ.l0jB0fFGKHv7x6YaJj9Q10pYUjOedF0VSsllPtVmjl0`,
           'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS', }
+          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          httpsAgent: new https.Agent({ rejectUnauthorized: false })
+         }
       };
       
       const bodyParameters = {
